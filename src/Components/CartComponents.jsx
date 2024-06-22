@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const CartComponents = () => {
   const carts = useSelector((state) => state.cart);
@@ -39,7 +40,10 @@ const CartComponents = () => {
         {carts.length > 0 && (
           <div className="p-4 bg-gray-100 rounded">
             <h2 className="text-lg font-bold mb-2">Total: ${carts.reduce((acc, item) => acc + parseFloat(item.newPrice), 0).toFixed(2)}</h2>
+            <Link to='/payment'>
             <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Order</button>
+            </Link>
+            
           </div>
         )}
       </div>
