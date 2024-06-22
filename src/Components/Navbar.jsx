@@ -4,6 +4,7 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -12,13 +13,15 @@ const Navbar = () => {
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
   };
+  const Carts=useSelector((cart)=>cart)
+  console.log(Carts.cart.length)
 
   const toggleLanguageDropdown = () => {
     setLanguageDropdownOpen(!languageDropdownOpen);
   };
 
   return (
-    <div className="bg-black w-full">
+    <div className="bg-black w-full sticky top-0 z-10">
       <nav className="flex justify-between items-center py-2 px-4 md:px-6">
         <div className="flex items-center">
           <Link to="/">
@@ -120,7 +123,11 @@ const Navbar = () => {
           </div>
           <Link to="/cart">
             {" "}
-            <ShoppingCartIcon className="text-white hover:border hover:border-white" />
+            <div className="text-white hover:border hover:border-white flex flex-col">
+            <span className=" text-white text-center">{Carts.cart.length}</span>
+            <ShoppingCartIcon className="text-white " />
+            </div>
+            
           </Link>
         </div>
       </nav>

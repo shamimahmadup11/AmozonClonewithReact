@@ -1,3 +1,4 @@
+// store.js
 import { createStore, combineReducers } from "@reduxjs/toolkit";
 
 const initialCartState = [];
@@ -7,7 +8,8 @@ const cartReducer = (state = initialCartState, action) => {
     case "ADD_TO_CART":
       return [...state, action.payload];
     case "REMOVE_FROM_CART":
-      return state.filter((item) => item.id !== action.payload.id);
+      return state.filter((item) => item.id !==action.payload);
+   
     default:
       return state;
   }
