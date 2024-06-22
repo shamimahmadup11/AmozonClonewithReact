@@ -5,6 +5,7 @@ import Header from "./Components/Header"
 import Body from "./Components/Body"
 import Footer from "./Components/Footer"
 import ImgSlider from "./Components/ImgSlider"
+import CartComponents from "./Components/CartComponents"
 function App() {
 
 const router=createBrowserRouter([
@@ -13,8 +14,8 @@ const router=createBrowserRouter([
     element: <><Navbar/> <Header/> <ImgSlider/> <Body/> <Footer/> </>
   },
     {
-    path:'/del',
-    element: <><Navbar/><Header/>  <Body/></>
+    path:'/cart',
+    element: <><Navbar/><CartComponents/> <Body/>  <Footer/></>
   }
   ,
     {

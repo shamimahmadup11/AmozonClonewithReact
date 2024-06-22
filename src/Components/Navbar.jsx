@@ -3,6 +3,7 @@ import { useState } from "react";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -20,11 +21,14 @@ const Navbar = () => {
     <div className="bg-black w-full">
       <nav className="flex justify-between items-center py-2 px-4 md:px-6">
         <div className="flex items-center">
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFfk5EpYhMg8UEC5DCQkuJoroVS8wMSz6NIA&s"
-            alt="logo"
-            className="h-14 w-20 md:w-24 rounded-md cursor-pointer"
-          />
+          <Link to="/">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFfk5EpYhMg8UEC5DCQkuJoroVS8wMSz6NIA&s"
+              alt="logo"
+              className="h-14 w-20 md:w-24 rounded-md cursor-pointer"
+            />
+          </Link>
+
           <div className="hidden md:flex items-center ml-4 text-white">
             <LocationOnIcon className="mr-1" />
             <span>Deliver to</span>
@@ -114,7 +118,10 @@ const Navbar = () => {
             <span className="text-xs">Returns</span>
             <span className="font-bold">& Orders</span>
           </div>
-          <ShoppingCartIcon className="text-white hover:border hover:border-white" />
+          <Link to="/cart">
+            {" "}
+            <ShoppingCartIcon className="text-white hover:border hover:border-white" />
+          </Link>
         </div>
       </nav>
     </div>
