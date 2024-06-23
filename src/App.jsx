@@ -9,6 +9,7 @@ import CartComponents from "./Components/CartComponents"
 import Payment from "./Components/Payment"
 import SignUp from "./Components/SignUp"
 import Profile from "./Components/Profile"
+import HelpComponent from "./Components/HelpComponent"
 function App() {
 
 const router=createBrowserRouter([
@@ -18,12 +19,12 @@ const router=createBrowserRouter([
   },
     {
     path:'/cart',
-    element: <><Navbar/><CartComponents/> <Body/>  <Footer/></>
+    element: <><Navbar/> <Header/> <CartComponents/> <Body/>  <Footer/></>
   }
   ,
     {
     path:'/payment',
-    element: <><Navbar/> <Payment/>  <Footer/></>
+    element: <><Navbar/> <Header/>  <Payment/>  <Footer/></>
   }
   ,
     {
@@ -35,6 +36,11 @@ const router=createBrowserRouter([
     path:'/profile',
     element: <><Navbar/> <Header/> <Profile/>  <Footer/></>
   }
+  ,
+  {
+  path:'/help',
+  element: <><Navbar/> <Header/> <HelpComponent/>   <Footer/></>
+}
 ])
   return (
     <>

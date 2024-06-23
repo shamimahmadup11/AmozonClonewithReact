@@ -50,17 +50,28 @@ const Header = () => {
               <CloseIcon className="text-white cursor-pointer" onClick={toggleSidebar} />
             </div>
             <ul className="text-white">
-              <li className="py-2">
-                <a href="#">Hello, {user ? user.displayName : "Guest"}</a>
+             <Link to='/profile'>
+             <li className="py-2">
+                <a href="#">Hello, {user?.displayName || 'Guest'}</a>
               </li>
-              <li className="py-2"><a href="#">Home</a></li>
+             </Link>
+             
+              <Link to="/"> <li className="py-2"><a href="#">Home</a></li></Link>
+             
+              <Link to="/signup">
+              <li className="py-2"><a href="#">Sign In</a></li>
+              </Link>
+             
               <li className="py-2">
                 <Link to="/profile">
                   Profile
                 </Link>
               </li>
               <li className="py-2"><a href="#">Sell</a></li>
+              <Link to='/help'>
               <li className="py-2"><a href="#">Help</a></li>
+              </Link>
+            
               <li className="py-2"><a href="#">Trending</a></li>
               <li className="py-2"><a href="#">Books</a></li>
               <li className="py-2"><a href="#">PC</a></li>

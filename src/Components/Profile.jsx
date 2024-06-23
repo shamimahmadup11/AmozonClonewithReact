@@ -11,7 +11,7 @@ const Profile = () => {
        <img src={user.photoURL} alt="User" className="w-32 h-32 rounded-full" />
           <p>Name: {user.displayName}</p>
           <p>Email: {user.email}</p>
-          <p>mobileNumber:7857894334</p>
+          <p>Mobile Number:7857894334</p>
         </div>
       )}
     </div>
