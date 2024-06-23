@@ -13,8 +13,8 @@ const Navbar = () => {
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
   };
-  const Carts=useSelector((cart)=>cart)
-  console.log(Carts.user.displayName)
+  const user = useSelector((state) => state.user); // corrected the selector
+  const cart = useSelector((state) => state.cart);
 
   const toggleLanguageDropdown = () => {
     setLanguageDropdownOpen(!languageDropdownOpen);
@@ -114,23 +114,20 @@ const Navbar = () => {
             )}
           </div>
           <Link to='/signup'>
-          <div className="hidden md:flex flex-col items-start mr-4 text-white hover:border hover:border-white">
-            <span className="text-xs">Hello, {Carts.user.displayName}</span>
-            <span className="font-bold">Account & Lists</span>
-          </div>
+            <div className="hidden md:flex flex-col items-start mr-4 text-white hover:border hover:border-white">
+              <span className="text-xs">Hello, {user ? user.displayName : "Guest"}</span>
+              <span className="font-bold">Account & Lists</span>
+            </div>
           </Link>
-         
           <div className="hidden md:flex flex-col items-start mr-4 text-white hover:border hover:border-white">
             <span className="text-xs">Returns</span>
             <span className="font-bold">& Orders</span>
           </div>
           <Link to="/cart">
-            {" "}
             <div className="text-white hover:border hover:border-white flex flex-col">
-            <span className=" text-white text-center">{Carts.cart.length}</span>
-            <ShoppingCartIcon className="text-white " />
+              <span className="text-white text-center">{cart.length}</span>
+              <ShoppingCartIcon className="text-white " />
             </div>
-            
           </Link>
         </div>
       </nav>
