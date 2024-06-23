@@ -7,6 +7,8 @@ import Footer from "./Components/Footer"
 import ImgSlider from "./Components/ImgSlider"
 import CartComponents from "./Components/CartComponents"
 import Payment from "./Components/Payment"
+import SignUp from "./Components/SignUp"
+import Profile from "./Components/Profile"
 function App() {
 
 const router=createBrowserRouter([
@@ -22,6 +24,16 @@ const router=createBrowserRouter([
     {
     path:'/payment',
     element: <><Navbar/> <Payment/>  <Footer/></>
+  }
+  ,
+    {
+    path:'/signup',
+    element: <><Navbar/> <SignUp/>  <Footer/></>
+  }
+  ,
+    {
+    path:'/profile',
+    element: <><Navbar/> <Profile/>  <Footer/></>
   }
 ])
   return (

@@ -2,12 +2,12 @@
 import { useState } from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
-
-
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 const Header = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const cart =useSelector((cart)=>cart);
 
- 
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
@@ -50,9 +50,13 @@ const Header = () => {
               <CloseIcon className="text-white cursor-pointer" onClick={toggleSidebar} />
             </div>
             <ul className="text-white">
-              <li className="py-2"><a href="#">Sign In</a></li>
-              <li className="py-2"><a href="#">Hello, Sign In</a></li>
+              
+              <li className="py-2"><a href="#">Hello, {cart.user.displayName}</a></li>
               <li className="py-2"><a href="#">Home</a></li>
+              <Link to="/profile">
+              <li className="py-2"><a href="#">Profile</a></li>
+              </Link>
+             
               <li className="py-2"><a href="#">Sell</a></li>
               <li className="py-2"><a href="#">Help</a></li>
               <li className="py-2"><a href="#">Trending</a></li>

@@ -4,8 +4,11 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 const Body = () => {
+  const carts= useSelector((carts)=>carts)
+  console.log(carts)
   const [quantities, setQuantities] = useState(
     FeatureData.reduce((acc, _, index) => {
       acc[index] = 0;
@@ -15,9 +18,18 @@ const Body = () => {
   const dispatch = useDispatch();
 
   const addTocart = (id) => {
+
     const data = FeatureData.find((item, index) => index === id);
-    dispatch({ type: "ADD_TO_CART", payload: data });
+    console.log(data.id);
+    const ExistingElement=carts.cart.find((cartItem)=>cartItem.id===data.id);
+    console.log(carts.cart.id)
+    if(!ExistingElement){
+      dispatch({ type: "ADD_TO_CART", payload: data });
+    }
+    
   };
+ 
+
 
   const increment = (index) => {
     setQuantities((prevQuantities) => ({

@@ -14,7 +14,7 @@ const Navbar = () => {
     setDropdownOpen(!dropdownOpen);
   };
   const Carts=useSelector((cart)=>cart)
-  console.log(Carts.cart.length)
+  console.log(Carts.user.displayName)
 
   const toggleLanguageDropdown = () => {
     setLanguageDropdownOpen(!languageDropdownOpen);
@@ -113,10 +113,13 @@ const Navbar = () => {
               </div>
             )}
           </div>
+          <Link to='/signup'>
           <div className="hidden md:flex flex-col items-start mr-4 text-white hover:border hover:border-white">
-            <span className="text-xs">Hello, Sign in</span>
+            <span className="text-xs">Hello, {Carts.user.displayName}</span>
             <span className="font-bold">Account & Lists</span>
           </div>
+          </Link>
+         
           <div className="hidden md:flex flex-col items-start mr-4 text-white hover:border hover:border-white">
             <span className="text-xs">Returns</span>
             <span className="font-bold">& Orders</span>
