@@ -1,6 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
 
-
 import {
     getAuth,
     signInWithPopup,
@@ -19,11 +18,13 @@ import {
       const auth = getAuth(app);
       if (auth.currentUser) {
         console.log(auth.currentUser);
-        dispatch(setUser({
-          displayName: auth.currentUser.displayName,
-          email: auth.currentUser.email,
-          photoURL: auth.currentUser.photoURL,
-        }));
+        dispatch(
+          setUser({
+            displayName: auth.currentUser.displayName,
+            email: auth.currentUser.email,
+            photoURL: auth.currentUser.photoURL,
+          })
+        );
       }
     }, [dispatch]);
   
@@ -34,11 +35,13 @@ import {
         const response = await signInWithPopup(auth, googleProvider);
   
         // Dispatch action to store user data in Redux state
-        dispatch(setUser({
-          displayName: response.user.displayName,
-          email: response.user.email,
-          photoURL: response.user.photoURL,
-        }));
+        dispatch(
+          setUser({
+            displayName: response.user.displayName,
+            email: response.user.email,
+            photoURL: response.user.photoURL,
+          })
+        );
   
         console.log(response);
       } catch (e) {
@@ -69,9 +72,9 @@ import {
     };
   
     return (
-      <div className="flex justify-center items-center h-screen px-4 m-10">
-        <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md md:w-1/3">
-          <h2 className="text-2xl font-bold mb-4">Login</h2>
+      <div className="flex justify-center items-center min-h-screen px-4 py-10 sm:py-20">
+        <div className="bg-white p-6 sm:p-8 rounded-lg shadow-md w-full max-w-sm sm:max-w-md lg:max-w-lg">
+          <h2 className="text-2xl font-bold mb-4 text-center">Login</h2>
           <div className="mb-4">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
@@ -110,7 +113,7 @@ import {
           >
             Sign in with Google
           </button>
-          <p className="mt-4 text-sm">
+          <p className="mt-4 text-sm text-center">
             Don't have an account?{" "}
             <a className="text-blue-500 hover:text-blue-700" href="#">
               Sign Up

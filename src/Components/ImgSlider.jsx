@@ -21,14 +21,14 @@ const ImgSlider = () => {
   useEffect(() => {
     const timer = setInterval(goToNext, 2000);
     return () => clearInterval(timer);
-  }, []); 
+  }, []);
 
   return (
-    <div className="relative w-full h-full md:h-80 overflow-hidden mt-10">
+    <div className="relative w-full h-screen overflow-hidden">
       <img
         src={images[currentIndex]}
         alt={`Slide ${currentIndex}`}
-        className="w-full h-full object-contain"
+        className="w-full h-full object-cover"
       />
       <button
         onClick={goToPrevious}

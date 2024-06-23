@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const user = useSelector((state) => state.user); 
+  const user = useSelector((state) => state.user);
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
@@ -43,39 +43,39 @@ const Header = () => {
         </nav>
       </header>
       {sidebarOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-40" onClick={toggleSidebar}>
-          <div className="fixed inset-y-0 left-0 bg-gray-800 w-64 p-4 z-50" onClick={(e) => e.stopPropagation()}>
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity duration-300" onClick={toggleSidebar}>
+          <div
+            className={`fixed inset-y-0 left-0 w-64 p-4 bg-white shadow-lg z-50 transform transition-transform duration-300 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}
+            onClick={(e) => e.stopPropagation()}
+          >
             <div className="flex justify-between items-center mb-4">
-              <h2 className="text-white text-xl">Menu</h2>
-              <CloseIcon className="text-white cursor-pointer" onClick={toggleSidebar} />
+              <h2 className="text-gray-800 text-2xl font-bold">Menu</h2>
+              <img src={user.photoURL} alt="" className='h-14 w-14 rounded-full' />
+              <CloseIcon className="text-gray-800 cursor-pointer" onClick={toggleSidebar} />
             </div>
-            <ul className="text-white">
-             <Link to='/profile'>
-             <li className="py-2">
-                <a href="#">Hello, {user?.displayName || 'Guest'}</a>
-              </li>
-             </Link>
-             
-              <Link to="/"> <li className="py-2"><a href="#">Home</a></li></Link>
-             
-              <Link to="/signup">
-              <li className="py-2"><a href="#">Sign In</a></li>
+            <ul className="text-gray-800">
+              <Link to='/profile'>
+                <li className="py-2 hover:bg-gray-500 p-4 font-bold">
+                  <a href="#">Hello, {user?.displayName || 'Guest'}</a>
+                </li>
               </Link>
-             
-              <li className="py-2">
+              <Link to="/"> <li className="py-2 hover:bg-gray-500 rounded-sm p-4 font-semibold"><a href="#">Home</a></li></Link>
+              <Link to="/signup">
+                <li className="py-2 hover:bg-gray-500 rounded-sm p-4  font-semibold"><a href="#">Sign In</a></li>
+              </Link>
+              <li className="py-2 hover:bg-gray-500 rounded-sm p-4 font-semibold">
                 <Link to="/profile">
                   Profile
                 </Link>
               </li>
-              <li className="py-2"><a href="#">Sell</a></li>
+              <li className="py-2 hover:bg-gray-500 rounded-sm p-4 font-semibold"><a href="#">Sell</a></li>
               <Link to='/help'>
-              <li className="py-2"><a href="#">Help</a></li>
+                <li className="py-2 hover:bg-gray-500 rounded-sm p-4 font-semibold"><a href="#">Help</a></li>
               </Link>
-            
-              <li className="py-2"><a href="#">Trending</a></li>
-              <li className="py-2"><a href="#">Books</a></li>
-              <li className="py-2"><a href="#">PC</a></li>
-              {/* Add more items as needed */}
+              <li className="py-3 hover:bg-gray-500 rounded-sm p-4 font-semibold"><a href="#">Trending</a></li>
+              <li className="py-2 hover:bg-gray-500 rounded-sm p-4 font-semibold"><a href="#">Books</a></li>
+              <li className="py-2 hover:bg-gray-500 rounded-sm p-4 font-semibold"><a href="#">Costumer's Services</a></li>
+              <li className="py-2 hover:bg-gray-500 rounded-sm p-4 font-semibold"><a href="#">Gift Cards</a></li>
             </ul>
           </div>
         </div>
